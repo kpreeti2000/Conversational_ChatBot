@@ -17,7 +17,7 @@ class ModelConfig:
 MODELS = {
     "mistral": ModelConfig(
         name="Mistral-7B-Instruct",
-        api_url="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
+        api_url="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2",
         api_token="enter token here"  # Replace with your actual token
     ),
     "llama": ModelConfig(
