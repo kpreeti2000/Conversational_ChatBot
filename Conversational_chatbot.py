@@ -1,5 +1,10 @@
+import os
 import requests
-
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain.memory import ConversationBufferMemory
+import requests
+from typing import Dict, List, Optional
 # Configuration for different models
 class ModelConfig:
     def __init__(self, name, api_url=None, api_token=None):
@@ -12,12 +17,12 @@ MODELS = {
     "mistralv2": ModelConfig(
         name="v.2",
         api_url="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2",
-        api_token="token"
+        api_token="enter token here"
     ),
     "mistralv3": ModelConfig(
         name="v.3",
         api_url="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3",
-        api_token="token"
+        api_token="enter token here"
     ),
 }
 
@@ -29,7 +34,7 @@ class MultiModelChatbot:
     def _format_prompt(self, user_input):
         system_message = (
             "You are a helpful Chat-bot assistant. Keep answers very short and accurate."
-            "Be conversational. Talk."
+            #"Be conversational. Talk."
             "When you don't know something, admit it rather than guessing."
         )
         prompt = f"<s>[INST] {system_message}\n\n"
@@ -93,6 +98,10 @@ class MultiModelChatbot:
 
 def chat():
     print("Multi-Model Chatbot ready! Type 'quit' to exit.")
+    print("Special commands:")
+    print("  'list models' - Show available models")
+    print("  'use model [name]' - Switch to a different model")
+    print("  'clear memory' - Clear conversation history for current model\n")
 
     chatbot = MultiModelChatbot()
 
