@@ -6,7 +6,7 @@ from langchain_core.runnables import RunnableLambda
 from typing import TypedDict, Annotated
 
 # Set your OpenWeatherMap API key
-OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY", "e5bc857dfd67ee1ffc708b889da758b7")
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY", "Enter API key here")
 
 # Define state schema
 class WeatherState(TypedDict):
